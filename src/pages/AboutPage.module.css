@@ -1,0 +1,153 @@
+.aboutContainer {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  color: #005f73;
+  font-size: 24px;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9ecef;
+  position: relative;
+  font-weight: 600;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background: #005f73;
+}
+
+.paragraph {
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+.educationTimeline {
+  margin-top: 20px;
+}
+
+.educationItem {
+  margin-bottom: 25px;
+  padding-left: 20px;
+  border-left: 3px solid #005f73;
+  position: relative;
+}
+
+.educationItem:last-child {
+  margin-bottom: 0;
+}
+
+.educationItem::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: #005f73;
+  border-radius: 50%;
+}
+
+.educationDegree {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 5px 0;
+}
+
+.educationInstitution {
+  color: #005f73;
+  font-weight: 500;
+  margin: 0 0 5px 0;
+}
+
+.educationDuration {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.educationDetails ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.educationDetails li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.educationDetails li::marker {
+  color: #005f73;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skillCategory {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skillCategory h4 {
+  color: #005f73;
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px dashed #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skillTag {
+  background: #e3f2fd;
+  color: #005f73;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.professionalAttributes ul {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+.professionalAttributes li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.professionalAttributes li::marker {
+  color: #005f73;
+}
+
+.professionalAttributes strong {
+  color: #2c3e50;
+  font-weight: 600;
+}

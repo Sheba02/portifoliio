@@ -1,0 +1,122 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+  justify-content: center;
+}
+
+.headerSection {
+  background: linear-gradient(135deg, #005f73 0%, #0a9396 100%);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 95, 115, 0.3);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImgContainer {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.profileImg {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 13%;
+  border: 5px solid white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.headerInfo h1 {
+  margin: 0 0 10px 0;
+  font-size: 38px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.headerInfo .title {
+  font-size: 20px;
+  opacity: 0.95;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.contactInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.socialLinks {
+  margin-top: 30px;
+  display: flex;
+  gap: 25px;
+}
+
+.socialLink {
+  color: white;
+  font-size: 28px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+  color: #e0f2f1;
+}
+
+.mainContent {
+  padding: 20px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    padding: 40px 15px;
+  }
+
+  .profileImg {
+    width: 140px;
+    height: 140px;
+  }
+
+  .headerInfo h1 {
+    font-size: 30px;
+  }
+
+  .headerInfo .title {
+    font-size: 17px;
+  }
+
+  .contactInfo {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .socialLinks {
+    gap: 15px;
+    font-size: 24px;
+  }
+}
