@@ -106,13 +106,3 @@
     display: block;
   }
 }
-
-@media (max-width: 968px) {
-  .sidebar {
-    width: 100%;
-    position: relative;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-  }
-}
