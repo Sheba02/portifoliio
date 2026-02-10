@@ -5,18 +5,25 @@ import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
 import ContactPage from './pages/ContactPage';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function AppContent() {
   const location = useLocation();
   const currentPath = location.pathname;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setIsSidebarOpen(false);
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   return (
-    <div className="app">
+    <div className={`app ${theme}-theme`}>
       <button
         className="mobile-toggle"
         onClick={toggleSidebar}
@@ -24,8 +31,18 @@ function AppContent() {
       >
         {isSidebarOpen ? '×' : '☰'}
       </button>
+
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label="Toggle Theme"
+      >
+        {theme === 'dark' ? '☀️' : '🌙'}
+      </button>
+
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-      <main className="main-content" onClick={closeSidebar}>
+      <main className={`main-content ${isSidebarOpen ? 'overlay-active' : ''}`} onClick={closeSidebar}>
+
         <nav className="content-nav">
           <Link to="/about" className={currentPath === '/about' || currentPath === '/' ? 'active' : ''}>
             About

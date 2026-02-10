@@ -89,7 +89,7 @@
 .mainContent {
   padding: 20px;
   font-size: 1.1em;
-  color: #333;
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
