@@ -83,6 +83,30 @@
   word-break: break-word;
 }
 
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+}
+
+.sidebar-close:hover {
+  color: var(--accent-yellow);
+}
+
+@media (max-width: 968px) {
+  .sidebar-close {
+    display: block;
+  }
+}
+
 @media (max-width: 968px) {
   .sidebar {
     width: 100%;
