@@ -1,34 +1,44 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export default async function handler(req: any, res: any) {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method Not Allowed' });
+    }
 
-export default async function (req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+    const { name, email, message } = req.body;
 
-  const { name, email, message } = req.body;
+    if (!name || !email || !message) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'All fields are required.' });
-  }
-
-  try {
-    const data = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>', // This needs to be a verified domain in Resend
-      to: ['shebamugisha9@gmail.com'],
-      subject: `New message from ${name} - Portfolio Contact Form`,
-      html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `,
+    // Create a transporter using Gmail SMTP
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_APP_PASSWORD,
+        },
     });
 
-    res.status(200).json({ message: 'Email sent successfully!', data });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ error: 'Failed to send email.', details: error instanceof Error ? error.message : String(error) });
-  }
+    const mailOptions = {
+        from: process.env.GMAIL_USER,
+        to: 'shebamugisha9@gmail.com',
+        subject: `Portfolio Contact Form: Message from ${name}`,
+        text: `
+      Name: ${name}
+      Email: ${email}
+      
+      Message:
+      ${message}
+    `,
+        replyTo: email,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        return res.status(200).json({ message: 'Thank you! Your message has been sent.' });
+    } catch (error) {
+        console.error('Email sending error:', error);
+        return res.status(500).json({ error: 'Failed to send email. Please try again later.' });
+    }
 }

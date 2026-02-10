@@ -1,10 +1,9 @@
 import './Sidebar.css';
 
 interface SidebarProps {
-  currentPath: string;
 }
 
-const Sidebar = ({ currentPath }: SidebarProps) => {
+const Sidebar = ({}: SidebarProps) => {
   return (
     <aside className="sidebar">
       <div className="sidebar-content">
