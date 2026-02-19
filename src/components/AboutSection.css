@@ -43,6 +43,31 @@
   font-size: 1.2rem !important;
 }
 
+.about-projects {
+  margin-top: 2rem;
+}
+
+.about-projects h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.about-projects p {
+  margin-bottom: 0.75rem;
+}
+
+.about-projects a {
+  color: var(--accent-yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.about-projects a:hover {
+  color: var(--accent-yellow-dark);
+}
+
 
 @media (max-width: 1100px) {
   .about-photo {

@@ -37,6 +37,28 @@ const AboutPage = () => {
             My goal is to build solutions that are practical, efficient, and aligned with real
             business needs.
           </p>
+
+          <div className="about-projects">
+            <h3>Projects</h3>
+            <p>
+              <a
+                href="https://leoafricainstitute.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Leo Africa Institute Website
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://e-library.bugemauniv.ac.ug/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bugema University E-Library
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
