@@ -25,6 +25,22 @@ const AboutPage = () => {
         </p>
 
         <p>
+          I am both a <strong>web and mobile developer</strong>. On mobile, I build apps with
+          <strong> Kotlin</strong>, <strong>Swift</strong>, <strong>React Native</strong>, and
+          <strong> Flutter</strong>. I have developed practical skills in building web applications,
+          designing RESTful APIs, managing databases, implementing authentication, and integrating
+          frontend and backend systems.
+        </p>
+
+        <p>
+          Through my development experience, I have worked with <strong>React</strong>,
+          <strong> TypeScript</strong>, <strong>JavaScript</strong>, <strong>Node.js</strong>,
+          <strong> Express.js</strong>, <strong>PostgreSQL</strong>, <strong>MySQL</strong>, and
+          <strong> MongoDB</strong>. I have contributed to application architecture, feature
+          implementation, debugging, database design, and improving application functionality.
+        </p>
+
+        <p>
           I am recognized for my <strong>analytical mindset</strong>, structured approach to
           problem-solving, and ability to communicate clearly with both technical and non-technical
           stakeholders. I collaborate effectively within teams, adapt quickly to new tools and
