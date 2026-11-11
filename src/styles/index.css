@@ -277,3 +277,64 @@ a {
     font-size: 1rem;
   }
 }
+
+/* Tech stack */
+.stack-heading {
+  margin-top: 4rem;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.stack-card {
+  padding: 1.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.stack-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stack-group {
+  margin-top: 1.25rem;
+}
+
+.stack-label {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--on-accent);
+  background: var(--accent);
+  border-radius: 6px;
+}
+
+.stack-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  list-style: none;
+}
+
+.stack-chips li {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: var(--accent-soft);
+  border-radius: 6px;
+}
+
+@media (max-width: 968px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+}

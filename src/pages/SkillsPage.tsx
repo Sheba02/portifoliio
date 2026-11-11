@@ -1,3 +1,47 @@
+interface StackGroup {
+  label: string;
+  items: string[];
+}
+
+interface Stack {
+  icon: string;
+  title: string;
+  groups: StackGroup[];
+}
+
+const stacks: Stack[] = [
+  {
+    icon: '💻',
+    title: 'Web Application Development',
+    groups: [
+      { label: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS'] },
+      {
+        label: 'Backend',
+        items: [
+          'Node.js / Express.js',
+          'Next.js',
+          'JWT authentication',
+          'Swagger (API docs)',
+          'MongoDB',
+          'PostgreSQL / MySQL',
+          'Cloudinary',
+        ],
+      },
+    ],
+  },
+  {
+    icon: '📱',
+    title: 'Mobile Application Development',
+    groups: [
+      {
+        label: 'Frontend',
+        items: ['React Native', 'Flutter + Dart', 'Kotlin', 'Swift', 'TypeScript', 'Tailwind CSS (mobile)'],
+      },
+      { label: 'Backend', items: ['Node.js / Express.js', 'Next.js', 'JWT authentication'] },
+    ],
+  },
+];
+
 const SkillsPage = () => {
   return (
     <section className="section skills-section">
@@ -30,9 +74,20 @@ const SkillsPage = () => {
           <div className="card-icon">📱</div>
           <h3 className="card-title">Mobile Development</h3>
           <p className="card-description">
-            Developing cross-platform mobile applications using
+            Developing native and cross-platform mobile applications using
+            <strong> Kotlin</strong>, <strong>Swift</strong>, <strong>Flutter</strong>, and
             <strong> React Native</strong>, ensuring smooth performance,
             intuitive interfaces, and real-world usability.
+          </p>
+        </div>
+
+        <div className="card">
+          <div className="card-icon">⚙️</div>
+          <h3 className="card-title">Backend Development</h3>
+          <p className="card-description">
+            Designing RESTful APIs and server-side logic with
+            <strong> Node.js</strong>, <strong>Express.js</strong>, and <strong>Next.js</strong>,
+            including JWT authentication, API documentation, and database integration.
           </p>
         </div>
 
@@ -80,6 +135,29 @@ const SkillsPage = () => {
             with a strong focus on information systems and applied technology.
           </p>
         </div>
+      </div>
+
+      <h2 className="section-title stack-heading">Tech Stack</h2>
+      <p className="section-lead">The tools I use across web, mobile, and backend work.</p>
+
+      <div className="stack-grid">
+        {stacks.map((stack) => (
+          <div className="stack-card" key={stack.title}>
+            <h3 className="stack-title">
+              <span aria-hidden="true">{stack.icon}</span> {stack.title}
+            </h3>
+            {stack.groups.map((group) => (
+              <div className="stack-group" key={group.label}>
+                <span className="stack-label">{group.label}</span>
+                <ul className="stack-chips">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );
