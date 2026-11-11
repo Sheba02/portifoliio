@@ -16,7 +16,7 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-card:hover {
+.project-card-link:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow);
 }
@@ -72,4 +72,24 @@
   color: var(--accent);
   border-top: 1px solid var(--border);
   overflow-wrap: anywhere;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  list-style: none;
+}
+
+.project-tech li {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: var(--accent-soft);
+  border-radius: 6px;
+}
+
+.project-card-featured {
+  grid-column: 1 / -1;
 }

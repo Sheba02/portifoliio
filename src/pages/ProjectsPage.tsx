@@ -5,10 +5,21 @@ interface Project {
   name: string;
   category: string;
   description: string;
-  url: string;
+  tech?: string[];
+  url?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
+  {
+    icon: '🛡️',
+    name: 'Shield Kids App',
+    category: 'Mobile app',
+    description:
+      'A parental control and child safety application developed for Shield Tech Hub. It uses real-time GPS tracking and geofencing to notify parents when children leave safe zones, sends SOS alerts with live location during emergencies, applies screen time limits by restricting device access after daily usage limits, and blocks unsafe websites to support safer browsing.',
+    tech: ['Flutter', 'Kotlin', 'Node.js', 'Express.js', 'Prisma', 'PostgreSQL', 'JWT authentication'],
+    featured: true,
+  },
   {
     icon: '🎓',
     name: 'BRAINAE',
@@ -42,29 +53,52 @@ const ProjectsPage = () => {
     <section className="section projects-section">
       <h2 className="section-title">Projects</h2>
       <p className="section-lead">
-        A selection of live products and websites I have worked on.
+        A selection of products and websites I have worked on.
       </p>
 
       <div className="projects-grid">
-        {projects.map((project) => (
-          <a
-            key={project.url}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-card"
-          >
-            <div className="project-card-head">
-              <span className="project-icon">{project.icon}</span>
-              <span className="project-category">{project.category}</span>
+        {projects.map((project) => {
+          const body = (
+            <>
+              <div className="project-card-head">
+                <span className="project-icon">{project.icon}</span>
+                <span className="project-category">{project.category}</span>
+              </div>
+              <h3 className="project-name">{project.name}</h3>
+              <p className="project-description">{project.description}</p>
+              {project.tech && (
+                <ul className="project-tech">
+                  {project.tech.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {project.url && (
+                <span className="project-link">
+                  {displayUrl(project.url)} <span aria-hidden="true">↗</span>
+                </span>
+              )}
+            </>
+          );
+
+          const cardClass = project.featured ? 'project-card project-card-featured' : 'project-card';
+
+          return project.url ? (
+            <a
+              key={project.name}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${cardClass} project-card-link`}
+            >
+              {body}
+            </a>
+          ) : (
+            <div key={project.name} className={cardClass}>
+              {body}
             </div>
-            <h3 className="project-name">{project.name}</h3>
-            <p className="project-description">{project.description}</p>
-            <span className="project-link">
-              {displayUrl(project.url)} <span aria-hidden="true">↗</span>
-            </span>
-          </a>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
