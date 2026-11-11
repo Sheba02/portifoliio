@@ -64,18 +64,9 @@
   color: var(--text-secondary);
 }
 
-.project-link {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--accent);
-  border-top: 1px solid var(--border);
-  overflow-wrap: anywhere;
-}
-
 .project-tech {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: 1.25rem;
@@ -92,4 +83,8 @@
 
 .project-card-featured {
   grid-column: 1 / -1;
+}
+
+.project-card-link {
+  cursor: pointer;
 }

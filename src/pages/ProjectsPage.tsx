@@ -26,6 +26,7 @@ const projects: Project[] = [
     category: 'University platform',
     description:
       'A university platform for education, publication, and consultancy, bringing partner universities, degrees, short courses, journals, and research under one academic home.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     url: 'https://brainae-v2-eight.vercel.app/',
   },
   {
@@ -34,6 +35,7 @@ const projects: Project[] = [
     category: 'Courier & delivery',
     description:
       'A multi-company courier and delivery platform: shared logistics infrastructure with partner fleets, live tracking, and one shipment lifecycle for every operator.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     url: 'https://tumanow-nu.vercel.app/',
   },
   {
@@ -42,11 +44,10 @@ const projects: Project[] = [
     category: 'Organisation website',
     description:
       'Website for a pan-African leadership development institute nurturing ethical, entrepreneurial leaders for the continent’s transformation.',
+    tech: ['Laravel', 'Alpine.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     url: 'https://leoafricainstitute.org/',
   },
 ];
-
-const displayUrl = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 
 const ProjectsPage = () => {
   return (
@@ -73,11 +74,6 @@ const ProjectsPage = () => {
                   ))}
                 </ul>
               )}
-              {project.url && (
-                <span className="project-link">
-                  {displayUrl(project.url)} <span aria-hidden="true">↗</span>
-                </span>
-              )}
             </>
           );
 
@@ -89,6 +85,7 @@ const ProjectsPage = () => {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${project.name} (opens the live site in a new tab)`}
               className={`${cardClass} project-card-link`}
             >
               {body}
