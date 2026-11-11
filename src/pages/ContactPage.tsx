@@ -48,112 +48,108 @@ const ContactPage = () => {
   return (
     <section className="section contact-page">
       <h2 className="section-title">Get In Touch</h2>
-      <p className="contact-subtitle">
-        Have a project in mind or just want to chat? Feel free to reach out through any of these channels!
+      <p className="section-lead">
+        Have a project in mind or just want to chat? Send me a message or reach out through any of these channels.
       </p>
 
-      <div className="contact-cards-grid">
-        <a href="mailto:shebamugisha9@gmail.com" className="contact-card">
-          <div className="contact-card-icon">📧</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">Email</h3>
-            <p className="contact-card-detail">shebamugisha9@gmail.com</p>
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/sheba-mugisha-aa798b2b0/" target="_blank" rel="noopener noreferrer" className="contact-card">
-          <div className="contact-card-icon">💼</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">LinkedIn</h3>
-            <p className="contact-card-detail">linkedin.com/in/sheba-mugisha</p>
-          </div>
-        </a>
-
-        <a href="https://x.com/sheba_mugisha" target="_blank" rel="noopener noreferrer" className="contact-card">
-          <div className="contact-card-icon">🐦</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">X</h3>
-            <p className="contact-card-detail">@sheba_mugisha</p>
-          </div>
-        </a>
-
-        <a href="tel:+250736083584" className="contact-card">
-          <div className="contact-card-icon">📞</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">Phone</h3>
-            <p className="contact-card-detail">+250 736 083 584</p>
-          </div>
-        </a>
-
-        <a href="https://github.com/Sheba02" target="_blank" rel="noopener noreferrer" className="contact-card">
-          <div className="contact-card-icon">💻</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">GitHub</h3>
-            <p className="contact-card-detail">github.com/Sheba02</p>
-          </div>
-        </a>
-
-        <div className="contact-card">
-          <div className="contact-card-icon">📍</div>
-          <div className="contact-card-content">
-            <h3 className="contact-card-title">Location</h3>
-            <p className="contact-card-detail">Kigali, Rwanda</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="email-form-section">
-        <h3 className="form-section-title">Send me a message</h3>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Your name"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="your.email@example.com"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              placeholder="Your message here..."
-              rows={6}
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="submit-btn"
-            disabled={status === 'loading'}
-          >
-            {status === 'loading' ? 'Sending...' : 'Send Message'}
-          </button>
-          {responseMessage && (
-            <div className={`form-message ${status === 'success' ? 'success' : 'error'}`}>
-              {responseMessage}
+      <div className="contact-layout">
+        <div className="email-form-section">
+          <h3 className="form-section-title">Send me a message</h3>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Your name"
+              />
             </div>
-          )}
-        </form>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Your message here..."
+                rows={6}
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
+            </button>
+            {responseMessage && (
+              <div className={`form-message ${status === 'success' ? 'success' : 'error'}`}>
+                {responseMessage}
+              </div>
+            )}
+          </form>
+        </div>
+
+        <div className="contact-channels">
+          <h3 className="form-section-title">Other ways to reach me</h3>
+
+          <a href="mailto:shebamugisha9@gmail.com" className="contact-card">
+            <div className="contact-card-icon">📧</div>
+            <div className="contact-card-content">
+              <h4 className="contact-card-title">Email</h4>
+              <p className="contact-card-detail">shebamugisha9@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+256708331489" className="contact-card">
+            <div className="contact-card-icon">📞</div>
+            <div className="contact-card-content">
+              <h4 className="contact-card-title">Phone</h4>
+              <p className="contact-card-detail">+256 708 331 489</p>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/sheba-mugisha-aa798b2b0/" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">💼</div>
+            <div className="contact-card-content">
+              <h4 className="contact-card-title">LinkedIn</h4>
+              <p className="contact-card-detail">linkedin.com/in/sheba-mugisha</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/Sheba02" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">💻</div>
+            <div className="contact-card-content">
+              <h4 className="contact-card-title">GitHub</h4>
+              <p className="contact-card-detail">github.com/Sheba02</p>
+            </div>
+          </a>
+
+          <a href="https://x.com/sheba_mugisha" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">🐦</div>
+            <div className="contact-card-content">
+              <h4 className="contact-card-title">X</h4>
+              <p className="contact-card-detail">@sheba_mugisha</p>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   );

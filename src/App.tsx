@@ -1,15 +1,14 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import './styles/index.css';
 import Sidebar from './components/Sidebar';
 import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
+import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
 import { useState, useEffect } from 'react';
 
 function AppContent() {
-  const location = useLocation();
-  const currentPath = location.pathname;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
@@ -22,43 +21,45 @@ function AppContent() {
   const closeSidebar = () => setIsSidebarOpen(false);
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
+  const navClass = ({ isActive }: { isActive: boolean }) => (isActive ? 'active' : '');
+
   return (
     <div className={`app ${theme}-theme`}>
-      <button
-        className="mobile-toggle"
-        onClick={toggleSidebar}
-        aria-label="Toggle Navigation"
-      >
-        {isSidebarOpen ? '×' : '☰'}
-      </button>
-
-      <button
-        className="theme-toggle"
-        onClick={toggleTheme}
-        aria-label="Toggle Theme"
-      >
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </button>
-
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-      <main className={`main-content ${isSidebarOpen ? 'overlay-active' : ''}`} onClick={closeSidebar}>
+      {isSidebarOpen && (
+        <button className="sidebar-backdrop" onClick={closeSidebar} aria-label="Close navigation" />
+      )}
 
+      <main className="main-content">
         <nav className="content-nav">
-          <Link to="/about" className={currentPath === '/about' || currentPath === '/' ? 'active' : ''}>
-            About
-          </Link>
-          <Link to="/skills" className={currentPath === '/skills' ? 'active' : ''}>
-            Skills
-          </Link>
-          <Link to="/contact" className={currentPath === '/contact' ? 'active' : ''}>
-            Contact
-          </Link>
+          <button
+            className="mobile-toggle"
+            onClick={toggleSidebar}
+            aria-label="Toggle Navigation"
+          >
+            ☰
+          </button>
+
+          <NavLink to="/" end className={navClass}>About</NavLink>
+          <NavLink to="/skills" className={navClass}>Skills</NavLink>
+          <NavLink to="/projects" className={navClass}>Projects</NavLink>
+          <NavLink to="/contact" className={navClass}>Contact</NavLink>
+
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </nav>
+
         <div className="content-wrapper">
           <Routes>
             <Route path="/" element={<AboutPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about" element={<Navigate to="/" replace />} />
             <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>

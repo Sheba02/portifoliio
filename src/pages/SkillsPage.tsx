@@ -1,9 +1,10 @@
-import '../components/SkillsSection.css';
-
 const SkillsPage = () => {
   return (
     <section className="section skills-section">
-      <h2 className="section-title">What I'm Doing</h2>
+      <h2 className="section-title">What I Do</h2>
+      <p className="section-lead">
+        The areas where I combine business understanding with hands-on technical work.
+      </p>
 
       <div className="cards-grid">
         <div className="card">
@@ -73,9 +74,9 @@ const SkillsPage = () => {
 
         <div className="card">
           <div className="card-icon">🎓</div>
-          <h3 className="card-title">3rd Year Undergraduate</h3>
+          <h3 className="card-title">Business Computing Graduate</h3>
           <p className="card-description">
-            Bachelor of Business Computing student at Bugema University,
+            Bachelor of Business Computing graduate from Bugema University,
             with a strong focus on information systems and applied technology.
           </p>
         </div>
